@@ -1,3 +1,3 @@
-This is my app
+We are using materialize css instead of Bootstrap as it implements material design of google which is minimilastic.
 
-Search bar to be added from - https://codepen.io/nikhil/pen/tnsCf
+The navigation bar is ready.
