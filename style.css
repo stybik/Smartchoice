@@ -10,14 +10,25 @@
 }
 
 #topbarsearch .input-field .prefix { 
-  width:0rem !important;    
+	  
+	margin-left: 10px; 
   }        
 #topbarsearch nav ul li:hover, nav ul li.active {
-      background-color: none !important;
+			background-color: white;
+			width: 200px;
   }
 .input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content
 {
-  margin-left: 1rem !important;
+	margin-left: 4rem ;
+	width: 200px;
+	background-color: white;
+	border-radius: 10px;
+	color: black;
+}
+
+.find
+{
+	margin-left: 0px;;
 }
 
 
@@ -117,14 +128,17 @@ body{
 
 /* Budget */
 .budget-wrap{
-	padding:40px;
+	padding:5px;
 	background:#292942;
 	box-shadow:0 15px 15px 0 rgba(0,0,0,.21),0 16px 28px 0 rgba(0,0,0,.22);
 }
 .budget-wrap .header .title{
 	color:#fff;
-	font-size:18px;
-	margin-bottom:30px;
+	font-size:25px;
+	margin-bottom:10px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 5px;
 }
 .budget-wrap .header .title .pull-right{
 	color:#ff5a84;
@@ -132,11 +146,10 @@ body{
 	font-weight:400;
 }
 .budget-wrap .footer{
-	margin-top:30px;
+	margin-top:20px;
 }
 .budget-wrap .footer .btn{
 	color:inherit;
-	
 	border-radius:20px;
 	display:inline-block;
   text-decoration:none;
@@ -148,5 +161,18 @@ body{
 .budget-wrap .footer .btn.btn-pri{
 	color:#eee;
 	background:#ff5a84;
+}
+
+.find
+{
+	font-weight: bold;
+}
+
+.fav-phone
+{
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 20px;
 }
   
