@@ -13,7 +13,7 @@
 
   <title>Smart Choice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
 </head>
 <body>
   <!-- ul's for the dropdowns at the navigation bar -->
@@ -74,82 +74,52 @@
 
   <!-- Main body of the page -->
   <div class="container-fluid">
-    <!-- SLider Starts -->
-    <div class="budget-wrap">
-      <div class="budget">
-        <div class="header">
-          <div class="title clearfix"> TELL US YOUR BUDGET <span class="pull-right"></span></div>
-        </div>
-        <div class="content">
-          <input type="range" min="1" max="100" value="20" data-rangeslider>
-        </div>
-        <!-- Secon Slider-->
-        <div class="budget-wrap">
-          <div class="budget"> 
-            <div class="content">
-              <input type="range" min="1" max="100" value="20" data-rangeslider>
-            </div>
-          </div>
-        </div> 
-        <!-- Second Slider Ends -->
-        <div class="footer clearfix">
-          <div class="fav-phone">
-            Decide which phone to buy...in 5 minutes!
-          </div>
-          <div class="pull-right">
-            <a href="javascript:void(0)" class="btn btn-pri find">See Best Phones!</a>
-          </div>
-        </div>
+    <section>
+      <!--for demo wrap-->
+      <h1>TOP MOBILES IN YOUR BUDGET!</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Phone</th>
+              <th>Model Name</th>
+              <th>Code</th>
+              <th>Company</th>
+              <th>Price</th>
+              <th>Change</th>
+              <th>Change %</th>
+              
+            </tr>
+          </thead>
+        </table>
       </div>
-    </div> 
-    <!--Slider Ends -->
-
-    <div class="row">
-      <div class="col m4">
-        <div class="card">
-          <div class="card-image">
-            <a href="#">
-            <img src="images/mobile.jpg">
-            <span class="card-title">MOBILES</span>
-            </a>
-          </div>
-          <div class="card-content">
-            <p>Find the mobile which suits your needs and looks amazing with you</p>
-          </div>
-        </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+            <tr>
+              <td><img src="https://assets.gadgets360cdn.com/shop/assets/products/xiaomi-redmi-note-4-4-gb-ram-64-gb_1497354111.jpeg" height="100px" width="100px"></td>
+              <td>Redmi 4</td>
+              <td>AAC</td>
+              <td>AUSTRALIAN COMPANY </td>
+              <td>$1.38</td>
+              <td>+2.01</td>
+              <td>-0.36%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="col m4">
-        <div class="card">
-          <div class="card-image">
-            <a href="#">
-            <img src="images/laptop.jpg">
-            <span class="card-title">LAPTOPS</span>
-            </a>
-          </div>
-          <div class="card-content">
-            <p>Find Your dream laptop where which can accompany you all your life.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col m4">
-        <div class="card">
-          <div class="card-image">
-            <a href="#">
-            <img src="images/earphone9.jpeg">
-            <span class="card-title last">EARPHONES</span>
-            </a>
-          </div>
-          <div class="card-content">
-            <p>Experience Evenly balanced like never before, Find your best pair of earphones here.</p>
-          </div>
-        </div>
-      </div>
-     
-    </div>
+    </section>
+    
+    
+    <!-- follow me template -->
+    <div class="made-with-love">
+      Made with
+      <i>♥</i> by S_B_S
+    </div>  
   </div>
 
 
-  
+
   
   <!-- Jquery script -->
   <script
@@ -158,7 +128,12 @@
   crossorigin="anonymous"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="app.js" ></script>
+  <script>// '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+    $(window).on("load resize ", function() {
+      var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+      $('.tbl-header').css({'padding-right':scrollWidth});
+    }).resize();</script>
+  
 
 </body>
 </html>
