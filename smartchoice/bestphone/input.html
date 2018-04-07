@@ -1,0 +1,183 @@
+<!--
+<form action="{% url 'bestphone:index' %}" method = "post">
+          {% csrf_token %}
+      <input type="range" min="5000" name = "input1" max="20000" value="20" data-rangeslider><br>
+      <input type="range" min="7000" name = "input2" max="20000" value="20" data-rangeslider>
+      <input type="submit" value="GET IT!">   
+</form>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> 
+  <!-- Font Awsome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Smart Choice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ul's for the dropdowns at the navigation bar -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">Mobiles</a></li>
+    <li><a href="#!">Laptops</a></li>
+    <li><a href="#!">Earphones</a></li>
+    <li><a href="#!">Headphones</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Account</a></li>
+  </ul> 
+  <ul id="dropdown2" class="dropdown-content">
+      <li><a href="#!">Mobiles</a></li>
+      <li><a href="#!">Laptops</a></li>
+      <li><a href="#!">Earphones</a></li>
+      <li><a href="#!">Headphones</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Account</a></li>
+  </ul> 
+  <!-- ul's for the dropdown ends -->
+  <!-- Navigation bar starts -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">CHOICE</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <!-- li for the search bar with autocomplete -->
+        <li>    
+          <div class="center row">
+            <div class="col s12 " >
+              <div class="row" id="topbarsearch">
+                <div class="input-field col s6 s12">
+                  <i class="material-icons prefix"></i>
+                  <input type="text" placeholder="   Search" id="autocomplete-input" class="autocomplete" >
+                </div>
+              </div>
+            </div>
+          </div>          
+        </li> 
+        <!-- Search bar li ends -->          
+        <li><a href="#"><i class="material-icons find">search</i></a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Products<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact-Us</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Products<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navigation bar ends -->
+
+  <!-- Main body of the page -->
+  <div class="container-fluid">
+    <!-- SLider Starts -->
+
+    <div class="budget-wrap">
+    	<form action="{% url 'bestphone:index' %}" method = "post">
+          {% csrf_token %}
+      <div class="budget">
+      	
+        <div class="header">
+          <div class="title clearfix"> TELL US YOUR BUDGET <span class="pull-right"></span></div>
+        </div>
+        <div class="content">
+          <input type="range" min="5000" name = "input1" max="20000" value="20" data-rangeslider>
+        </div>
+        <!-- Secon Slider-->
+        <div class="budget-wrap">
+          <div class="budget"> 
+            <div class="content">
+              <input type="range" min="7000" name = "input2" max="20000" value="20" data-rangeslider>
+            </div>
+          </div>
+        </div> 
+        <!-- Second Slider Ends -->
+        <div class="footer clearfix">
+          <div class="fav-phone">
+            Find a phone that you would love to have !
+          </div>
+          <div class="pull-right">
+            <!--
+            <a href="javascript:void(0)" class="btn btn-pri find">Find Your Phone !</a>
+            -->
+            <input class="btn btn-pri find" type="submit" value="GET IT!">
+          </div>
+        </div>
+    
+      </div>
+  </form>
+    
+    </div> 
+    <!--Slider Ends -->
+
+    <div class="row">
+      <div class="col m4">
+        <div class="card">
+          <div class="card-image">
+            <a href="#">
+            <img src="images/mobile.jpg">
+            <span class="card-title">MOBILES</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>Find the mobile which suits your needs and looks amazing with you</p>
+          </div>
+        </div>
+      </div>
+      <div class="col m4">
+        <div class="card">
+          <div class="card-image">
+            <a href="#">
+            <img src="images/laptop.jpg">
+            <span class="card-title">LAPTOPS</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>Find Your dream laptop where which can accompany you all your life.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col m4">
+        <div class="card">
+          <div class="card-image">
+            <a href="#">
+            <img src="images/earphone9.jpeg">
+            <span class="card-title last">EARPHONES</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>Experience Evenly balanced like never before, Find your best pair of earphones here.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+
+  
+  
+  <!-- Jquery script -->
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="app.js" ></script>
+
+</body>
+</html>

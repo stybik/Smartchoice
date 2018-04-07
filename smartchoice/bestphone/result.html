@@ -1,0 +1,448 @@
+<!--
+{% if q1 %}
+	{% for q in q1 %}
+	<br/>
+		{{q.model_no}}
+		{{q.name}}
+		{{q.price}}
+		{{q.users_review}}
+		{{q.expert_review}}
+		{{q.result}}
+		{% load static from static %}
+		<img src="{% static "honor7x.jpg" %}">
+		<br/>
+		
+	{% endfor %}
+{% else %}
+	There is no phone in this range :(
+{% endif %}		
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> 
+  <!-- Font Awsome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Smart Choice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  	.nav-wrapper
+{
+  background-color: #009688;
+}
+.brand-logo
+{
+  margin-left: 1%;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+#topbarsearch .input-field .prefix { 
+	  
+	margin-left: 10px; 
+  }        
+#topbarsearch nav ul li:hover, nav ul li.active {
+			background-color: white;
+			width: 200px;
+  }
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content
+{
+	margin-left: 4rem ;
+	width: 200px;
+	background-color: white;
+	border-radius: 10px;
+	color: black;
+}
+
+.find
+{
+	margin-left: 0px;;
+}
+
+
+html{
+	height:100%;
+	background:#42426b;
+	background:radial-gradient(#31314a,#42426b);
+	background-repeat:no-repeat;
+}
+
+*,:after,:before{box-sizing:border-box}
+.pull-left{float:left}
+.pull-right{float:right}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+
+.rangeslider,
+.rangeslider__fill {
+	display:block;
+	border-radius:10px;
+}
+
+.rangeslider {
+	position:relative;
+}
+.rangeslider:after{
+	top:50%;
+	left:0;
+	right:0;
+	content:'';
+	width:100%;
+	height:5px;
+	margin-top:-2.5px;
+	border-radius:5px;
+	position:absolute;
+	background:#212131;
+}
+
+.rangeslider--horizontal{
+	width:100%;
+	height:28px;
+}
+
+.rangeslider--vertical{
+	width:5px;
+	min-height:150px;
+	max-height:100%;
+}
+.rangeslider--disabled{
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+	opacity:0.4;
+}
+
+.rangeslider__fill{
+	position:absolute;
+	background:#ff637b;
+}
+.rangeslider--horizontal .rangeslider__fill{
+	top:0;
+	height:100%;
+}
+.rangeslider--vertical .rangeslider__fill{
+	bottom:0;
+	width:100%;
+}
+
+.rangeslider__handle{
+	top:50%;
+	width:28px;
+	height:28px;
+	cursor:pointer;
+	margin-top:-14px;
+	background:white;
+	position:absolute;
+	background:#ff637b;
+	border-radius:50%;
+	display:inline-block;
+}
+.rangeslider__handle:active{
+	background:#ff5a7b;
+}
+
+.rangeslider__fill,
+.rangeslider__handle{
+	z-index:1;
+}
+.rangeslider--horizontal .rangeslider__fill{
+	top:50%;
+	height:5px;
+	margin-top:-2.5px;
+}
+
+/* Budget */
+.budget-wrap{
+	padding:5px;
+	background:#292942;
+	box-shadow:0 15px 15px 0 rgba(0,0,0,.21),0 16px 28px 0 rgba(0,0,0,.22);
+}
+.budget-wrap .header .title{
+	color:#fff;
+	font-size:25px;
+	margin-bottom:10px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 5px;
+}
+.budget-wrap .header .title .pull-right{
+	color:#ff5a84;
+	font-size:24px;
+	font-weight:400;
+}
+.budget-wrap .footer{
+	margin-top:20px;
+}
+.budget-wrap .footer .btn{
+	color:inherit;
+	border-radius:20px;
+	display:inline-block;
+  text-decoration:none;
+  text-align: center;
+}
+.budget-wrap .footer .btn.btn-def{
+	color:#525263;
+}
+.budget-wrap .footer .btn.btn-pri{
+	color:#eee;
+	background:#ff5a84;
+}
+
+.find
+{
+	font-weight: bold;
+}
+
+.fav-phone
+{
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.card .card-image img
+{
+	border: 2px solid white;
+}
+
+.card .card-title
+{
+	font-weight: bold;
+	font-size: 40px;
+	letter-spacing: 3px;
+}
+body{
+	margin:0;
+	color:#444;
+	font:300 18px/18px Roboto, sans-serif;
+}
+
+
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+.tbl-content{
+  height:800px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 18px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
+}
+section{
+  margin: 50px;
+}
+
+
+/* follow me template */
+.made-with-love {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+.made-with-love i {
+  font-style: normal;
+  color: #F50057;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+  </style>
+</head>
+<body>
+  <!-- ul's for the dropdowns at the navigation bar -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">Mobiles</a></li>
+    <li><a href="#!">Laptops</a></li>
+    <li><a href="#!">Earphones</a></li>
+    <li><a href="#!">Headphones</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Account</a></li>
+  </ul> 
+  <ul id="dropdown2" class="dropdown-content">
+      <li><a href="#!">Mobiles</a></li>
+      <li><a href="#!">Laptops</a></li>
+      <li><a href="#!">Earphones</a></li>
+      <li><a href="#!">Headphones</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Account</a></li>
+  </ul> 
+  <!-- ul's for the dropdown ends -->
+  <!-- Navigation bar starts -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">SMARTCHOICE</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <!-- li for the search bar with autocomplete -->
+        <li>    
+          <div class="center row">
+            <div class="col s12 " >
+              <div class="row" id="topbarsearch">
+                <div class="input-field col s6 s12">
+                  <i class="material-icons prefix"></i>
+                  <input type="text" placeholder="   Search" id="autocomplete-input" class="autocomplete" >
+                </div>
+              </div>
+            </div>
+          </div>          
+        </li> 
+        <!-- Search bar li ends -->          
+        <li><a href="#"><i class="material-icons find">search</i></a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Products<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact-Us</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Products<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navigation bar ends -->
+
+  <!-- Main body of the page -->
+  <div class="container-fluid">
+    <section>
+      <!--for demo wrap-->
+      <h1 style="font-weight: bold; letter-spacing: 2px;">TOP MOBILES IN YOUR BUDGET!</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Phone</th>
+              <th>Model Name</th>
+              <th>Price</th>
+              <th>User Review(30%)</th>
+              <th>Expert Review(30%)</th>
+              <th>Result</th>
+              
+              
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+          	{% if q1 %}
+				{% for q in q1 %}
+            <tr>
+            	
+              <td><img src={{q.LINK}} height="100px" width="60px"></td>
+              <td>{{q.name}}</td>
+              <td>{{q.price}}</td>
+              <td>{{q.users_review}}</td>
+              <td>{{q.expert_review}}</td>
+              <td>{{q.result}}%</td>
+            </tr>
+            	{% endfor %}
+			{% else %}
+				There is no phone in this range :(
+			{% endif %}	
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    
+    <!-- follow me template -->
+    <div class="made-with-love">
+      Made with
+      <i>♥</i> by S_B_S
+    </div>  
+  </div>
+
+
+
+  
+  <!-- Jquery script -->
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>// '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+    $(window).on("load resize ", function() {
+      var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+      $('.tbl-header').css({'padding-right':scrollWidth});
+    }).resize();</script>
+  
+
+</body>
+</html>
